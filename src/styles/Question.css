@@ -1,0 +1,41 @@
+#question-title {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin-top: 10%;
+    font-size: 50px;
+    background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#main-question-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.options-div {
+    width: 800px;
+    margin-right: 80px;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#score-div {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 45%;
+    margin-top: 2%;
+    height: 100px;
+    width: 200px;
+}
+
+#score-div > p {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 50px;
+    color: wheat;
+}

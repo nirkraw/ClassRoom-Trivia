@@ -1,0 +1,20 @@
+.option-text {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 30px;
+    text-align: center;
+    background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.option-text:hover {
+    background: -webkit-linear-gradient(#eee, rgb(221, 221, 221));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.option-container {
+    min-width: 40%;
+}
+
