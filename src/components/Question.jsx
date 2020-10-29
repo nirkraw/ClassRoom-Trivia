@@ -11,7 +11,8 @@ export default class Question extends Component {
       score: 0,
     };
   
-    this.incrementScore = this.incrementScore.bind(this);
+    this.rightAnswer = this.rightAnswer.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
   }
 
   nextQuestion() {
@@ -20,15 +21,17 @@ export default class Question extends Component {
     else this.setState({ questionIdx: newIdx});
   }
 
-  endGame() {
-    
-  }
-
-  incrementScore() {
-    const newScore = this.state.score + 1; 
-    this.setState({score: newScore});
+  rightAnswer() {
+    const newScore = this.state.score + 1;
+    this.setState({ score: newScore });
     this.nextQuestion();
   }
+
+
+  endGame() {
+
+  }
+
 
   getRandomizedOptions(currQuestion) {
     const options = currQuestion.incorrect;
@@ -60,17 +63,20 @@ export default class Question extends Component {
         option={option}
         key={i}
         answer={currQuestion.correct}
-        incrementScore = {this.incrementScore}
+        rightAnswer = {this.rightAnswer}
+        nextQuestion = {this.nextQuestion}
       />
     ));
 
     const score = this.formatScore();
 
     return (
-      <div id="main-question-div">
-        <h1 id="question-title">{currQuestion.question}</h1>
-        <div>
-          <ul className="options-div">{options}</ul>
+      <div id="main-board-div">
+        <div id="question-title-container">
+          <h1 id="question-title">{currQuestion.question}</h1>
+        </div>
+        <div id="options-div">
+          <ul id="options-ul">{options}</ul>
         </div>
         <div id="score-div">
           <p>Score:</p>

@@ -10,7 +10,9 @@ export class OptionItem extends Component {
     
   chooseOption() {
     if(this.props.answer === this.props.option) {
-        this.props.incrementScore();
+        this.props.rightAnswer();
+    } else {
+        this.props.nextQuestion();
     }
   }
 
@@ -18,7 +20,7 @@ export class OptionItem extends Component {
     return (
       <div className="option-container">
         <h1 onClick={this.chooseOption} className="option-text">
-          {this.props.option}
+          -{this.props.option}
         </h1>
       </div>
     );
