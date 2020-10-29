@@ -4,9 +4,12 @@
     background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: writing 5s linear 0s normal both;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.animate {
+    animation: writing 2s linear ;
 }
 
 @keyframes writing {
@@ -23,5 +26,15 @@
 
 .option-container {
     min-width: 40%;
+}
+
+.wrong {
+    background: -webkit-linear-gradient(#eee, rgb(240, 13, 13));
+    -webkit-background-clip: text;
+}
+
+.right {
+    background: -webkit-linear-gradient(rgb(83, 83, 83), blue);;
+    -webkit-background-clip: text;
 }
 

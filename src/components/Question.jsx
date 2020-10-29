@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Questions from "../assets/questions.json";
 import Questioncss from "../styles/Question.css";
 import OptionItem from "./OptionItem";
+import Clock from "./Clock"
+import song from "../assets/background-music.mp3"
 
 export default class Question extends Component {
   constructor(props) {
@@ -13,6 +15,10 @@ export default class Question extends Component {
   
     this.rightAnswer = this.rightAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+  }
+
+  componentDidMount() {
+
   }
 
   nextQuestion() {
@@ -57,6 +63,7 @@ export default class Question extends Component {
   }
 
   render() {
+    
     const currQuestion = Questions[this.state.questionIdx];
     const options = this.getRandomizedOptions(currQuestion).map((option, i) => (
       <OptionItem
@@ -72,11 +79,17 @@ export default class Question extends Component {
 
     return (
       <div id="main-board-div">
+        <audio id="theme" src={song}></audio>
         <div id="question-title-container">
           <h1 id="question-title">{currQuestion.question}</h1>
         </div>
-        <div id="options-div">
-          <ul id="options-ul">{options}</ul>
+        <div id="option-and-clock-container">
+          <div id="options-div">
+            <ul id="options-ul">{options}</ul>
+          </div>
+          <div id="clock-container">
+            <Clock nextQuestion={this.nextQuestion} />
+          </div>
         </div>
         <div id="score-div">
           <p>Score:</p>
