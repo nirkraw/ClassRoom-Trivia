@@ -4,7 +4,6 @@
     background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    white-space: nowrap;
     overflow: hidden;
 }
 
