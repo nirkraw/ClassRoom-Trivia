@@ -38,7 +38,6 @@ export default class Board extends Component {
 
   nextQuestion() {
     this.animate();
-    this.createOptions();
     const newIdx = this.state.questionIdx + 1;
     if (newIdx === Questions.length) {
       const audio = document.getElementById("cheer");
@@ -46,6 +45,7 @@ export default class Board extends Component {
       audio.play();
       this.setState({ endGame: true });
     } else this.setState({ questionIdx: newIdx });
+    this.createOptions();
   }
 
   rightAnswer() {
