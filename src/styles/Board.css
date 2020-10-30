@@ -1,4 +1,4 @@
-#main-board-div {
+#main-board-container {
   position: absolute;
   left: 8%;
   top: 5%;
@@ -23,14 +23,15 @@
   max-width: 80%;
 }
 
-#question-title {
+#question-text {
   font-family: "Gloria Hallelujah", cursive;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   margin-top: 60px;
   background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 95%;
   animation: 2s fadein linear 0s normal both;
 }
 
@@ -41,7 +42,7 @@
   margin-top: -2%;
 }
 
-#options-div {
+#options-container {
   height: 20%;
   width: 50%;
 }
@@ -68,18 +69,4 @@
   flex-direction: column;
 }
 
-#score-div {
-  position: absolute;
-  bottom: 3%;
-  right: 300px;
-  display: flex;
-  justify-content: space-around;
-  height: 10%;
-  width: 20%;
-}
 
-#score-div > p {
-  font-family: "Gloria Hallelujah", cursive;
-  font-size: 3vw;
-  color: wheat;
-}

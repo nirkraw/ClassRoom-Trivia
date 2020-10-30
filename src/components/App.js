@@ -1,10 +1,10 @@
 import '../styles/App.css';
-import Question from "./Question.jsx"
+import Board from "./Board.jsx"
 
 function App() {
   return (
     <div className="App">
-      <Question />
+      <Board />
     </div>
   );
 }

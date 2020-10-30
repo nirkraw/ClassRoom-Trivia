@@ -1,0 +1,15 @@
+#score-sub-container {
+  position: absolute;
+  bottom: 4%;
+  right: 300px;
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+  width: 20%;
+}
+
+#score-sub-container > p {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 3vw;
+  color: wheat;
+}
