@@ -8,14 +8,14 @@
     overflow: hidden;
 }
 
-.animate {
+/* .animate {
     animation: writing 2s linear ;
 }
 
 @keyframes writing {
   from { width: 0% }
   to { width: 100% }
-}
+} */
 
 .option-text:hover {
     background: -webkit-linear-gradient(rgb(128, 127, 127), rgb(162, 161, 161));

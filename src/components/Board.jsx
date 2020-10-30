@@ -23,7 +23,19 @@ export default class Board extends Component {
     this.nextQuestion = this.nextQuestion.bind(this);
   }
 
+  componentDidMount() {
+     this.animate()
+  }
+
+  animate() {
+     const question = document.getElementById("question-title-container");
+     const clock = document.getElementById("option-and-clock-container");
+     question.classList.add("animate-opacity");
+     clock.classList.add("animate-opacity");
+  }
+
   nextQuestion() {
+    this.animate(); 
     const newIdx = this.state.questionIdx + 1;
     if (newIdx === Questions.length) {
       const audio = document.getElementById("cheer");
