@@ -1,5 +1,5 @@
 import React from 'react';
-import Scorecss from '../styles/Score.css'
+import '../styles/Score.css'
 
 export default function Score(props) {
     const score = props.score;

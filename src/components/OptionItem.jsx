@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Optioncss from "../styles/Option.css";
+import "../styles/Option.css";
+import rightSound from "../assets/right.wav"
+import wrongSound from "../assets/wrong.wav"
 
 export class OptionItem extends Component {
     constructor(props) {
@@ -11,11 +13,17 @@ export class OptionItem extends Component {
   chooseOption(e) {
     if(this.props.answer === this.props.option) {
       e.target.classList.add("right");
+      const audio = document.getElementById("right-sound");
+      audio.volume = 0.5;
+      audio.play();
       setTimeout(() => {
         e.target.classList.remove("right");
         this.props.rightAnswer();
       }, 3000);
     } else {
+        const audio = document.getElementById("wrong-sound");
+        audio.volume = 0.5;
+        audio.play();
         e.target.classList.add("wrong");
         setTimeout(() => {
           e.target.classList.remove("wrong");
@@ -25,12 +33,13 @@ export class OptionItem extends Component {
   }
 
   render() {
-
     return (
       <div className="option-container">
-          <h1 onClick={this.chooseOption} className="option-text">
-            - {this.props.option}
-          </h1>
+        <h1 onClick={this.chooseOption} className="option-text">
+          - {this.props.option}
+        </h1>
+        <audio id="right-sound" src={rightSound}></audio>
+        <audio id="wrong-sound" src={wrongSound}></audio>
       </div>
     );
   }

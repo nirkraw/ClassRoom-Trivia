@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Questions from "../assets/questions.json";
-import Boardcss from "../styles/Board.css";
+import "../styles/Board.css";
 import OptionItem from "./OptionItem";
-import Score from "./Score"
+import Score from "./Score";
 import Clock from "./Clock";
 import song from "../assets/background-music.mp3";
-
+import mute from "../assets/mute.png";
+import unmute from "../assets/unmute.png";
+import cheer from "../assets/game-over.wav"
 
 export default class Board extends Component {
   constructor(props) {
@@ -13,18 +15,22 @@ export default class Board extends Component {
     this.state = {
       questionIdx: 0,
       score: 0,
+      musicPlaying: false,
+      endGame: false,
     };
 
     this.rightAnswer = this.rightAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
   }
 
-  componentDidMount() {}
-
   nextQuestion() {
     const newIdx = this.state.questionIdx + 1;
-    if (newIdx === Questions.length) this.endGame();
-    else this.setState({ questionIdx: newIdx });
+    if (newIdx === Questions.length) {
+      const audio = document.getElementById("cheer");
+      audio.volume = 0.5;
+      audio.play();
+      this.setState({ endGame: true });
+    } else this.setState({ questionIdx: newIdx });
   }
 
   rightAnswer() {
@@ -33,7 +39,19 @@ export default class Board extends Component {
     this.nextQuestion();
   }
 
-  endGame() {}
+  play = () => {
+    const audio = document.getElementById("theme");
+    audio.volume = 0.5;
+    audio.loop = true;
+    audio.play();
+    this.setState({ musicPlaying: true });
+  };
+
+  mute = () => {
+    const audio = document.getElementById("theme");
+    audio.volume = 0;
+    this.setState({ musicPlaying: false });
+  };
 
   getRandomizedOptions(currQuestion) {
     const options = currQuestion.incorrect;
@@ -42,9 +60,19 @@ export default class Board extends Component {
     return options;
   }
 
-  
+  restartGame = () => {
+    this.setState({
+      questionIdx: 0,
+      score: 0,
+      musicPlaying: false,
+      endGame: false,
+    });
+  }
+
   render() {
-    const currQuestion = Questions[this.state.questionIdx];
+    const { endGame, score, questionIdx, musicPlaying } = this.state;
+
+    const currQuestion = Questions[questionIdx];
     const options = this.getRandomizedOptions(currQuestion).map((option, i) => (
       <OptionItem
         option={option}
@@ -55,9 +83,25 @@ export default class Board extends Component {
       />
     ));
 
+    if (endGame)
+      return (
+        <div class="main-board-container">
+          <h1 id="final-score">
+            Final Score: {score}/{questionIdx - 1}
+          </h1>
+          <h1 onClick={this.restartGame} id="restart-game">Try Again?</h1>
+        </div>
+      );
+
     return (
-      <div id="main-board-container">
+      <div class="main-board-container">
+        {musicPlaying ? (
+          <img onClick={this.mute} className="play-mute" src={unmute} />
+        ) : (
+          <img onClick={this.play} className="play-mute" src={mute} />
+        )}
         <audio id="theme" src={song}></audio>
+        <audio id="cheer" src={cheer}></audio>
         <div id="question-title-container">
           <h1 id="question-text">{currQuestion.question}</h1>
         </div>
@@ -70,7 +114,7 @@ export default class Board extends Component {
           </div>
         </div>
         <div id="score-main-container">
-          <Score score={this.state.score}/>
+          <Score score={score} />
         </div>
       </div>
     );

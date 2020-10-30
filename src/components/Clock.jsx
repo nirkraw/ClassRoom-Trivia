@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Clock.css"
 
 export default function Clock(props) {
   const [timer, setTimer] = React.useState(30);

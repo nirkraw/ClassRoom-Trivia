@@ -1,0 +1,8 @@
+#clock {
+  background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 2s fadein linear 0s normal both;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 70px;
+}
