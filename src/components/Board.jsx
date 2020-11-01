@@ -11,33 +11,28 @@ export default class Board extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionIdx: 20,
+      questionIdx: 0,
       score: 0,
       musicPlaying: false,
-      endGame: false,
+      gamePhase: "start",
       options: [],
       animating: false,
     };
-
-    this.incrementScore = this.incrementScore.bind(this);
-    this.nextQuestion = this.nextQuestion.bind(this);
   }
 
-  componentDidMount() {
-    this.startGame();
-  }
 
   startGame = () => {
-    this.createOptions();
-    this.animateRoundTransition();
+    this.setState({ gamePhase: "game" }, () => {
+      this.createOptions();
+      this.animateRoundTransition();
+    });
   };
 
 
   animateRoundTransition() {
       const question = document.getElementById("question-title-container");
       const clock = document.getElementById("option-and-clock-container");
-
-      
+ 
       question.classList.toggle("fade-in");
       clock.classList.toggle("fade-in");
 
@@ -49,7 +44,7 @@ export default class Board extends Component {
 
   }
 
-  nextQuestion() {
+  nextQuestion = () => {
     this.setState({animating: true});
     setTimeout(() => {
       this.animateRoundTransition();
@@ -59,7 +54,7 @@ export default class Board extends Component {
         const audio = document.getElementById("cheer");
         audio.volume = 0.5;
         audio.play();
-        this.setState({ endGame: true });
+        this.setState({ gamePhase: "end" });
       } else {
         this.setState({ questionIdx: newIdx, animating: false });
       }
@@ -68,7 +63,7 @@ export default class Board extends Component {
     
   }
 
-  incrementScore() {
+  incrementScore = () => {
     const newScore = this.state.score + 1;
     this.setState({ score: newScore });
   }
@@ -102,12 +97,12 @@ export default class Board extends Component {
     this.setState({
       questionIdx: 0,
       score: 0,
-      endGame: false,
+      gamePhase: "game",
     } , () => this.startGame())
   };
 
   render() {
-    const { endGame, score, questionIdx, musicPlaying, options } = this.state;
+    const { gamePhase, score, questionIdx, musicPlaying, options } = this.state;
 
     const optionItems = options.map((option, i) => {
       let correct;
@@ -128,7 +123,7 @@ export default class Board extends Component {
       />
     )});
 
-    if (endGame)
+    if (gamePhase === "end")
       return (
         <div class="main-board-container">
           {musicPlaying ? (
@@ -139,18 +134,29 @@ export default class Board extends Component {
           <h1 id="final-score">
             Final Score: {score}/{questionIdx }
           </h1>
-          <h1 onClick={this.restartGame} id="restart-game">
+          <h1 onClick={this.restartGame} id="menu-title">
             Try Again?
           </h1>
         </div>
       );
+      
+    if(gamePhase === "start") {
+      return (
+        <div class="main-board-container">
+          <h1 id="opening-title">Are you ready for some trivia?</h1>
+            <h1 onClick={this.startGame} id="start-game">
+              Yes!
+            </h1>
+        </div>
+      );
+    }
 
     return (
       <div class="main-board-container">
         {musicPlaying ? (
-          <img onClick={this.mute} className="play-mute" src={unmute} />
+          <img onClick={this.muteMusic} className="play-mute" src={unmute} />
         ) : (
-          <img onClick={this.play} className="play-mute" src={mute} />
+          <img onClick={this.playMusic} className="play-mute" src={mute} />
         )}
         <div id="question-title-container">
           <h1 id="question-text">

@@ -79,9 +79,7 @@
   opacity: .8;
 }
 
-
-
-#restart-game, #final-score {
+#menu-title, #opening-title, #final-score, #start-game {
   font-family: "Gloria Hallelujah", cursive;
   font-size: 40px;
   text-align: center;
@@ -91,10 +89,18 @@
   -webkit-text-fill-color: transparent;
 }
 
-#restart-game:hover {
+#menu-title:hover {
   background: -webkit-linear-gradient(rgb(201, 255, 8), rgb(175, 242, 18));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
+}
+
+#start-game:hover {
+   background: -webkit-linear-gradient(rgb(201, 255, 8), rgb(175, 242, 18));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 

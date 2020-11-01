@@ -6,11 +6,11 @@ import wrongSound from "../assets/wrong.wav";
 
 export default function Audio() {
     return (
-        <div>
-          <audio id="theme" src={song}></audio>
-          <audio id="cheer" src={cheer}></audio>
-          <audio id="right-sound" src={rightSound}></audio>
-          <audio id="wrong-sound" src={wrongSound}></audio>
-        </div>
-    )
+      <div>
+        <audio id="theme" src={song}></audio>
+        <audio id="cheer" src={cheer}></audio>
+        <audio id="right-sound" src={rightSound}></audio>
+        <audio id="wrong-sound" src={wrongSound}></audio>
+      </div>
+    );
 }
