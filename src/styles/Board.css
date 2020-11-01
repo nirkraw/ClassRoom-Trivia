@@ -19,7 +19,8 @@
   }
 }
 
-.animate-opacity {
+
+.fade-in {
   animation: 1s fadein linear 1s normal both;
 }
 
@@ -94,5 +95,6 @@
   background: -webkit-linear-gradient(rgb(201, 255, 8), rgb(175, 242, 18));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 
