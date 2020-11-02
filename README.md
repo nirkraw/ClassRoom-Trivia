@@ -19,6 +19,13 @@ To start application please ```npm install``` and then ```npm run start``` to st
 - Currently the application is run on a single json file with pre-formatted questions. To have application run on any set of questions an "add file" option would need to be available with instructions on formatting. 
 - The app is run to have up to four options and more than that would create issues with formating.  
 
+## Possible enhancements
+- Create a databass and allow users to both store their top scores and taken quizes, as well as upload their own trivia.
+- Create a social media homepage where users can see the top trivia being used by friends and globally
+- Track data and categorize different trivia's by difficulty
+- Allow users to switch off clock or change the time allowed
+
+
 # Coding Challenge Criteria
 
 1.  Your goal is to create an application that displays trivia questions with multiple-choice answers to select
