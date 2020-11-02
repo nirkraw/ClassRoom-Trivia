@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "../styles/Option.css";
-import rightSound from "../assets/right.wav";
-import wrongSound from "../assets/wrong.wav";
 
 export class OptionItem extends Component {
-  chooseOption = (e) => {
+  chooseOption = () => {
     if (this.props.answer === this.props.option) {
       const audio = document.getElementById("right-sound");
       audio.volume = 0.5;
@@ -16,22 +14,22 @@ export class OptionItem extends Component {
       audio.play();
     }
     this.props.nextQuestion();
-  }
+  };
 
   render() {
-    let {correct, animating} = this.props;
-    
+    let { correct, animating } = this.props;
+
     return (
       <div className="option-container">
-        {animating ? 
+        {animating ? (
           <h1 className={`option-text correct-${correct}`}>
             - {this.props.option}
           </h1>
-          : 
+        ) : (
           <h1 onClick={this.chooseOption} className="option-text hoverable">
             - {this.props.option}
           </h1>
-        }
+        )}
       </div>
     );
   }

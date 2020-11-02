@@ -1,29 +1,24 @@
-.option-text{
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 25px;
-    background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    overflow: hidden;
+.option-text {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 25px;
+  background: -webkit-linear-gradient(#eee, rgb(132, 209, 171));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  overflow: hidden;
 }
 
-
 .hoverable:hover {
-    background: -webkit-linear-gradient(rgb(128, 127, 127), rgb(162, 161, 161));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
+  background: -webkit-linear-gradient(rgb(128, 127, 127), rgb(162, 161, 161));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 
 .option-container {
-    min-width: 40%;
+  min-width: 40%;
 }
 
-
-.correct-true{
-    background: -webkit-linear-gradient(blue, blue);;
-    -webkit-background-clip: text;
+.correct-true {
+  background: -webkit-linear-gradient(blue, blue);
+  -webkit-background-clip: text;
 }
-
-
-

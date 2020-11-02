@@ -19,9 +19,8 @@
   }
 }
 
-
 .fade-in {
-  animation: 1s fadein linear 1s normal both;
+  animation: 2s fadein linear 1s normal both;
 }
 
 #question-title-container {
@@ -71,15 +70,17 @@
   height: 50px;
   width: 50px;
   z-index: 10;
-  
 }
 
 .play-mute:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-#menu-title, #opening-title, #final-score, #start-game {
+#menu-title,
+#opening-title,
+#final-score,
+#start-game {
   font-family: "Gloria Hallelujah", cursive;
   font-size: 40px;
   text-align: center;
@@ -97,10 +98,9 @@
 }
 
 #start-game:hover {
-   background: -webkit-linear-gradient(rgb(201, 255, 8), rgb(175, 242, 18));
+  background: -webkit-linear-gradient(rgb(201, 255, 8), rgb(175, 242, 18));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
   text-transform: uppercase;
 }
-
